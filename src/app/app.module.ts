@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +10,7 @@ import { PremiumBottlesPageComponent } from './premium-bottles-page/premium-bott
 
 import { BreadcrumbModule } from 'angular-crumbs';
 import { OrderWaterModule } from './order-water/order-water.module'
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,11 @@ import { OrderWaterModule } from './order-water/order-water.module'
     BrowserModule,
     AppRoutingModule,
     BreadcrumbModule,
-    OrderWaterModule
+    OrderWaterModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCDViU_Bs52neXGNKc4lXA_AG3lct5SABQ'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

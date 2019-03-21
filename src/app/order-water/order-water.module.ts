@@ -8,11 +8,12 @@ import { RouterModule } from '@angular/router';
 import { routes } from './order-water.routes';
 import { OrderWaterComponent } from './order-water.component';
 import {BreadcrumbModule} from 'angular-crumbs';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-   
+    FormsModule,
     RouterModule.forChild(routes),
     BreadcrumbModule
 

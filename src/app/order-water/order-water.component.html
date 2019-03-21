@@ -12,15 +12,40 @@
    
 <div *ngIf="crumb && crumb==='Type'">
 <div class="center-on-page">
-  
-    <h1>Select the type of water</h1>
-    <div> 
-      Single RO
 
-      <button type="button" id="sub" class="sub">-</button>
-    <input type="number" id="1" value="1" min="1" max="3" />
-    <button type="button" id="add" class="add">+</button>
+  
+    <h1 class="heading">Select the type of water</h1>
+    <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">Noraml Purified Water</span>
+      <div style="display: inline;padding-left: 90px;">
+          <button type="button" id="sub" class="sub" (click)='changeNWsub()'>-</button>
+          <input #nw type="number" id="box" [value]="normalWater" min="1" max="10" />
+          <button type="button" id="add" class="add" (click)='changeNWadd()'>+</button>
+      </div> 
     </div>
+
+    <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">RO purified Water</span>
+      <div style="display: inline;padding-left: 129px;">
+          <button type="button" id="sub" class="sub" (click)='changeNWsub()'>-</button>
+          <input #nw type="number" id="box" [value]="normalWater" min="1" max="10" />
+          <button type="button" id="add" class="add" (click)='changeNWadd()'>+</button>
+      </div> 
+    </div>
+
+    <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">Double RO purified Water</span>
+      <div style="display: inline;padding-left: 61px;">
+          <button type="button" id="sub" class="sub" (click)='changeNWsub()'>-</button>
+          <input #nw type="number" id="box" [value]="normalWater" min="1" max="10" />
+          <button type="button" id="add" class="add" (click)='changeNWadd()'>+</button>
+      </div> 
+    </div>
+
+    <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">Thriple RO purified Water</span>
+      <div style="display: inline;padding-left: 63px;">
+          <button type="button" id="sub" class="sub" (click)='changeNWsub()'>-</button>
+          <input #nw type="number" id="box" [value]="normalWater" min="1" max="10" />
+          <button type="button" id="add" class="add" (click)='changeNWadd()'>+</button>
+      </div> 
+    </div>    
     <!-- <div class="select">
       <select name="slct" id="slct">
         <option>Choose an option</option>
@@ -28,17 +53,69 @@
         <option value="2">No JS</option>
         <option value="3">Nice!</option>
       </select>
-    </div> -->
-
-
-    
+    </div> -->    
+  </div>
+    <button class="nextBtn" (click)="navigate1()">></button>
   </div>
 
-    <button (click)="navigate1()"> Type</button>
-  </div>
 
   <div *ngIf="crumb && crumb==='Quantity'">
-      <button (click)="navigate2()"> QQQQQQQ </button>
+    <button (click)='navigate0()'> Back </button>
+     <div class="container">
+
+  <h4>Shipping Address</h4>
+
+  <p>You can click the button below to use your current location as your shipping address</p>
+
+  <div id="map">
+  </div>
+
+  <p id="current_position"></p>
+
+  <button id="showMe" class="btn center-align">
+    <i class="material-icons">
+        my_location
+    </i>
+    Use My Location
+  </button>
+
+  <form id="billingAddress">
+
+    <div id="locationList"></div>
+    <br>
+
+    <div class="input-field">
+      <textarea class="materialize-textarea" id="address" type="text"></textarea>
+      <label class="active" for="address">Address (Area and Street)</label>
+    </div>
+
+    <div class="input-field">
+      <input id="locality" type="text">
+      <label class="active" for="locality">Locality</label>
+    </div>
+
+    <div class="input-field">
+      <input id="city" type="text">
+      <label class="active" for="city">City/District/Town</label>
+    </div>
+    <div class="input-field">
+      <input id="postal_code" type="text">
+      <label class="active" for="pin_code">Pin Code</label>
+    </div>
+
+    <div class="input-field">
+      <input id="landmark" type="text">
+      <label class="active" for="landmark">Landmark</label>
+    </div>
+
+    <div class="input-field">
+      <input id="state" type="text">
+      <label class="active" for="State">State</label>
+    </div>
+
+  </form>
+
+</div>
     </div>
   
     <div *ngIf="crumb && crumb==='Adress'">

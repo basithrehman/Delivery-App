@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Directive, OnInit, ViewChild, enableProdMode,ElementRef} from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart, Params, PRIMARY_OUTLET } from "@angular/router";
 import "rxjs/add/operator/filter";
 import 'rxjs/add/operator/map';
@@ -19,8 +19,11 @@ interface IBreadcrumb {
 })
 export class OrderWaterComponent implements OnInit {
 
+  @ViewChild('nw') er: ElementRef;
   crumb:any; 
   mapready = false;
+  normalWaterBack:any;
+  normalWater:any;
   public breadcrumbs: IBreadcrumb[];
   constructor(   private activatedRoute: ActivatedRoute,
     private router: Router ) {
@@ -48,6 +51,38 @@ export class OrderWaterComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.normalWater=1;
+  //   $(document).ready(function(){
+  //     $('.add').click(function () {
+  //       if ($(this).prev().val() < 10) {
+  //         $(this).prev().val(+$(this).prev().val() + 1);
+  //         let val = $(this).prev().val();
+           
+  //       }
+  //   });
+  //   $('.sub').click(function () {
+  //       if ($(this).next().val() > 1) {
+  //         if ($(this).next().val() > 1) $(this).next().val(+$(this).next().val() - 1);
+  //       }
+  //   });
+  // });
+
+  this.crumb='Type';
+ 
+  }
+
+  changeNWadd() {
+    this.normalWater = this.normalWater + 1;
+    // this.normalWater = this.er.nativeElement.value;
+    console.log(this.normalWater)
+  }
+
+  changeNWsub() {
+    this.normalWater = this.normalWater - 1;
+    console.log(this.normalWater)
+  }
+
+  navigate0(){
     this.crumb='Type';
   }
 
@@ -62,5 +97,10 @@ export class OrderWaterComponent implements OnInit {
   navigate3(){
     this.crumb='Price'
   }
+
+  // onChange(newValue) {
+  //   console.log(newValue);
+  //   this.normalWaterBack = newValue;
+  // }
 
 }
