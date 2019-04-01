@@ -9,13 +9,17 @@ import { routes } from './order-water.routes';
 import { OrderWaterComponent } from './order-water.component';
 import {BreadcrumbModule} from 'angular-crumbs';
 import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
-    BreadcrumbModule
+    BreadcrumbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCDViU_Bs52neXGNKc4lXA_AG3lct5SABQ'
+    })
 
     // Material
 

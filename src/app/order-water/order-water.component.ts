@@ -24,6 +24,14 @@ export class OrderWaterComponent implements OnInit {
   mapready = false;
   normalWaterBack:any;
   normalWater:any;
+
+  street:any;
+  city:any;
+  state:any;
+  zip:any;
+  country:any;
+  county:any;
+
   public breadcrumbs: IBreadcrumb[];
   constructor(   private activatedRoute: ActivatedRoute,
     private router: Router ) {

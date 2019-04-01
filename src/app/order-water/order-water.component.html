@@ -60,70 +60,88 @@
 
 
   <div *ngIf="crumb && crumb==='Quantity'">
-    <button (click)='navigate0()'> Back </button>
-     <div class="container">
-
-  <h4>Shipping Address</h4>
-
-  <p>You can click the button below to use your current location as your shipping address</p>
-
-  <div id="map">
-  </div>
-
-  <p id="current_position"></p>
-
-  <button id="showMe" class="btn center-align">
-    <i class="material-icons">
-        my_location
-    </i>
-    Use My Location
-  </button>
-
-  <form id="billingAddress">
-
-    <div id="locationList"></div>
-    <br>
-
-    <div class="input-field">
-      <textarea class="materialize-textarea" id="address" type="text"></textarea>
-      <label class="active" for="address">Address (Area and Street)</label>
+    <div>
+        <button (click)='navigate0()'> Back </button>
+      <div class="form-group">
+       <h1 class="heading">Fill your address</h1>
+        <input [(ngModel)]="street" type="street"
+               class="form-control" 
+               id="autocomplete" 
+               placeholder="Street">
+        <input [(ngModel)]="city" type="city" 
+               class="form-control" 
+               id="inputCity" 
+               placeholder="City">
+        
+        <input [(ngModel)]="state" type="state" 
+               class="form-control" 
+               id="inputState" 
+               placeholder="State">
+        
+        <input [(ngModel)]="zip" type="zip" 
+               class="form-control" 
+               id="inputZip" 
+               placeholder="Zip">
+        
+        <input [(ngModel)]="county" type="county" 
+               class="form-control" 
+               id="inputCounty" 
+               placeholder="County">
+        
+        <input [(ngModel)]="country" type="country" 
+               class="form-control" 
+               id="inputCountry" 
+               placeholder="Country">
+      </div>
+      
     </div>
-
-    <div class="input-field">
-      <input id="locality" type="text">
-      <label class="active" for="locality">Locality</label>
-    </div>
-
-    <div class="input-field">
-      <input id="city" type="text">
-      <label class="active" for="city">City/District/Town</label>
-    </div>
-    <div class="input-field">
-      <input id="postal_code" type="text">
-      <label class="active" for="pin_code">Pin Code</label>
-    </div>
-
-    <div class="input-field">
-      <input id="landmark" type="text">
-      <label class="active" for="landmark">Landmark</label>
-    </div>
-
-    <div class="input-field">
-      <input id="state" type="text">
-      <label class="active" for="State">State</label>
-    </div>
-
-  </form>
-
-</div>
+    <button class="nextBtn" (click)="navigate2()">></button>
     </div>
   
-    <div *ngIf="crumb && crumb==='Adress'">
-        <textarea> </textarea>
-        <button (click)="navigate3()"> Q </button>
+    <div style="margin-top:-117px;" *ngIf="crumb && crumb==='Adress'">
+        <h1 class="heading">Billing Details</h1>        
+        <div class="row" style="background: ghostwhite;padding: 30px;">
+          <div class="col-md-12">
+            <div class="row" style="margin-top:-25px;">
+                <div class="col-md-12">
+                    <h3>Item(s)</h3>
+                      <div *ngIf="normalWater>0">
+                          <span class="col-md-6"> Normal Water: </span><span class="col-md-6"> {{normalWater}} </span>
+                      </div>
+                  </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                  <h3>Address:</h3>
+                  <div class="row">
+                      <span class="col-md-6">Street: </span><span class="col-md-6">{{ street }}</span>
+                      <span class="col-md-6">City: </span> <span class="col-md-6">{{ city }}</span>
+                      <span class="col-md-6">State: </span><span class="col-md-6">{{ state }} </span>
+                      <span class="col-md-6">Country: </span><span class="col-md-6">{{ country }}</span>
+                      <span class="col-md-6">Zip: </span><span class="col-md-6">{{ zip }}</span><br>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                    <h3>Payment:</h3>
+                    <div class="row">
+                        <input type="radio" name="payment" value="cod"> COD<br>
+                        <input type="radio" name="payment" value="c/d"> Credit/Debit card<br>
+                        <input type="radio" name="payment" value="ob"> Online Banking<br>  
+                    </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        <button (click)="navigate3()"> Confirm </button>
       </div>
 
       <div *ngIf="crumb && crumb==='Price'">
-          Total Price: 100000000000000
+         Billing:
         </div>
   

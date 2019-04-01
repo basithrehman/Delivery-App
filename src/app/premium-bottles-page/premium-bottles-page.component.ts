@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+// import { google } from '@agm/core/services/google-maps-types';
+import 'rxjs/add/operator/map';
+
+declare const google: any;
 
 @Component({
   selector: 'app-premium-bottles-page',
@@ -7,12 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PremiumBottlesPageComponent implements OnInit {
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
-  constructor() { }
+  lat: number;
+  lng: number;
+  constructor() {   }
+
+
 
   ngOnInit() {
-    
-  }
+  //   let geocoder:any = new google.maps.Geocoder;
+  //   let latlng = {lat: this.lat, lng: this.lng};
+  //   geocoder.geocode({'location': latlng}, (results, status) => {
+  //  console.log(results); // read data from here
+  //  console.log(status);
+// });    
+}
+
+
+  
+
+  
 
 }

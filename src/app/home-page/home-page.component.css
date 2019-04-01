@@ -20,7 +20,7 @@ li.indicator-container {
     background-color:#0077b5 !important;    
     height: 100%;
     color: white;
-    border: 1px solid black;
+    border: 1px solid #0077b5;
     border-right: none;
   }
   

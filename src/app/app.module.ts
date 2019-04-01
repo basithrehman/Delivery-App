@@ -11,12 +11,14 @@ import { PremiumBottlesPageComponent } from './premium-bottles-page/premium-bott
 import { BreadcrumbModule } from 'angular-crumbs';
 import { OrderWaterModule } from './order-water/order-water.module'
 import { AgmCoreModule } from '@agm/core';
+import { GoogleMapsComponent } from './google-maps/google-maps.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    PremiumBottlesPageComponent
+    PremiumBottlesPageComponent,
+    GoogleMapsComponent
   ],
   imports: [
     BrowserModule,
