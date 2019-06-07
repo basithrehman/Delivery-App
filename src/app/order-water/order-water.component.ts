@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd, NavigationStart, Params, PRIMARY
 import "rxjs/add/operator/filter";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
 interface IBreadcrumb {
@@ -24,6 +25,9 @@ export class OrderWaterComponent implements OnInit {
   mapready = false;
   normalWaterBack:any;
   normalWater:any;
+  roWater:any;
+  droWater:any;
+  troWater:any;
 
   street:any;
   city:any;
@@ -59,7 +63,11 @@ export class OrderWaterComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.normalWater=1;
+    this.normalWater=0;
+    this.roWater=0;
+    this.droWater=0;
+    this.troWater=0;
+
   //   $(document).ready(function(){
   //     $('.add').click(function () {
   //       if ($(this).prev().val() < 10) {
@@ -89,6 +97,36 @@ export class OrderWaterComponent implements OnInit {
     this.normalWater = this.normalWater - 1;
     console.log(this.normalWater)
   }
+
+  changeROadd() {
+    this.roWater = this.roWater + 1;
+    // this.normalWater = this.er.nativeElement.value;
+  }
+
+  changeROsub() {
+    this.roWater = this.roWater - 1;
+  }
+
+  changeDROadd() {
+    this.droWater = this.droWater + 1;
+    // this.normalWater = this.er.nativeElement.value;
+  }
+
+  changeDROsub() {
+    this.droWater = this.droWater - 1;
+  }
+
+  changeTROadd() {
+    this.troWater = this.troWater + 1;
+    // this.normalWater = this.er.nativeElement.value;
+  }
+
+  changeTROsub() {
+    this.troWater = this.troWater - 1;
+  }
+
+  
+  
 
   navigate0(){
     this.crumb='Type';

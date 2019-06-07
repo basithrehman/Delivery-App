@@ -25,25 +25,25 @@
 
     <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">RO purified Water</span>
       <div style="display: inline;padding-left: 129px;">
-          <button type="button" id="sub" class="sub" (click)='changeNWsub()'>-</button>
-          <input #nw type="number" id="box" [value]="normalWater" min="1" max="10" />
-          <button type="button" id="add" class="add" (click)='changeNWadd()'>+</button>
+          <button type="button" id="sub" class="sub" (click)='changeROsub()'>-</button>
+          <input #nw type="number" id="box" [value]="roWater" min="1" max="10" />
+          <button type="button" id="add" class="add" (click)='changeROadd()'>+</button>
       </div> 
     </div>
 
     <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">Double RO purified Water</span>
       <div style="display: inline;padding-left: 61px;">
-          <button type="button" id="sub" class="sub" (click)='changeNWsub()'>-</button>
-          <input #nw type="number" id="box" [value]="normalWater" min="1" max="10" />
-          <button type="button" id="add" class="add" (click)='changeNWadd()'>+</button>
+          <button type="button" id="sub" class="sub" (click)='changeDROsub()'>-</button>
+          <input #nw type="number" id="box" [value]="droWater" min="1" max="10" />
+          <button type="button" id="add" class="add" (click)='changeDROadd()'>+</button>
       </div> 
     </div>
 
     <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">Thriple RO purified Water</span>
       <div style="display: inline;padding-left: 63px;">
-          <button type="button" id="sub" class="sub" (click)='changeNWsub()'>-</button>
-          <input #nw type="number" id="box" [value]="normalWater" min="1" max="10" />
-          <button type="button" id="add" class="add" (click)='changeNWadd()'>+</button>
+          <button type="button" id="sub" class="sub" (click)='changeTROsub()'>-</button>
+          <input #nw type="number" id="box" [value]="troWater" min="1" max="10" />
+          <button type="button" id="add" class="add" (click)='changeTROadd()'>+</button>
       </div> 
     </div>    
     <!-- <div class="select">
@@ -98,50 +98,76 @@
     <button class="nextBtn" (click)="navigate2()">></button>
     </div>
   
-    <div style="margin-top:-117px;" *ngIf="crumb && crumb==='Adress'">
-        <h1 class="heading">Billing Details</h1>        
-        <div class="row" style="background: ghostwhite;padding: 30px;">
+    <div style="margin-top:-76px;margin-left: -70px;" *ngIf="crumb && crumb==='Adress'">
+        <h1 class="heading" style="background: black;margin: 0px; position: relative;top: 15px;   padding-top: 6px; padding-bottom: 6px;">Billing Details</h1>        
+        <div class="row" style="background: ghostwhite;padding: 30px;padding-bottom: 20px;">
           <div class="col-md-12">
             <div class="row" style="margin-top:-25px;">
                 <div class="col-md-12">
-                    <h3>Item(s)</h3>
+                    <h3>Item(s) <i (click)="navigate0()" style="cursor: pointer;font-size: 15px; color: blue; padding-left: 150px;" class="far fa-edit"></i></h3> 
                       <div *ngIf="normalWater>0">
-                          <span class="col-md-6"> Normal Water: </span><span class="col-md-6"> {{normalWater}} </span>
+                          <span class="col-md-9" style="padding-left: 0px"> Normal Water: </span><span class="col-md-3"> {{normalWater}} </span>
                       </div>
+
+                      <div *ngIf="roWater>0">
+                        <span class="col-md-9" style="padding-left: 0px"> RO Purified Water: </span><span class="col-md-3"> {{roWater}} </span>
+                    </div>
+
+                    <div *ngIf="droWater>0">
+                      <span class="col-md-9" style="padding-left: 0px"> Double RO Purified Water: </span><span class="col-md-3"> {{droWater}} </span>
+                  </div>
+
+                  <div *ngIf="troWater>0">
+                    <span class="col-md-9" style="padding-left: 0px">Thriple RO Purified Water: </span><span class="col-md-3"> {{troWater}} </span>
+                </div>
                   </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="border-top: 1px dashed #44c62c; margin-top: 10px;">
               <div class="col-md-12">
-                  <h3>Address:</h3>
+                  <h3 style="margin-top: 10px;">Address:<i (click)="navigate1()" style="cursor: pointer;font-size: 15px; color: blue; padding-left: 139px;" class="far fa-edit"></i></h3>
                   <div class="row">
-                      <span class="col-md-6">Street: </span><span class="col-md-6">{{ street }}</span>
-                      <span class="col-md-6">City: </span> <span class="col-md-6">{{ city }}</span>
-                      <span class="col-md-6">State: </span><span class="col-md-6">{{ state }} </span>
-                      <span class="col-md-6">Country: </span><span class="col-md-6">{{ country }}</span>
-                      <span class="col-md-6">Zip: </span><span class="col-md-6">{{ zip }}</span><br>
-                      </div>
+                    <span class="col-md-12">
+                        {{ street }}, {{ city }}, {{ state }}, {{ country }}, {{ zip }}
+                    </span>
                   </div>
               </div>
-
-              <div class="row">
+            </div>
+            
+            <div class="row" style="border-top: 1px dashed #44c62c; margin-top: 10px;">
                 <div class="col-md-12">
-                    <h3>Payment:</h3>
+                    <h3 style="margin-top: 10px;">Payment:</h3>
                     <div class="row">
-                        <input type="radio" name="payment" value="cod"> COD<br>
-                        <input type="radio" name="payment" value="c/d"> Credit/Debit card<br>
-                        <input type="radio" name="payment" value="ob"> Online Banking<br>  
+                        <span class="col-md-12">
+                            <input type="radio" name="payment" value="cod"> COD
+                            <input type="radio" name="payment" value="c/d"> Credit/Debit card
+                            <input type="radio" name="payment" value="ob"> Online Banking  
+                        </span>
                     </div>
                 </div>
               </div>
-            </div>
-
 
           </div>
-        <button (click)="navigate3()"> Confirm </button>
+          <div class="row">
+            <div class="col-md-12" style="text-align: center;padding-top: 18px;">
+                <button style="background: transparent; border: 1px solid #27279b; border-radius: 12px;" (click)="navigate3()"> Confirm </button>
+            </div>
+          </div>
       </div>
+    </div>
 
       <div *ngIf="crumb && crumb==='Price'">
-         Billing:
+         <div class="row" style="margin-left: -115px;margin-top: 28px;
+     ">
+          <div style="color: #44ff44; font-size: 92px;text-align: center" class="col-md-12">
+              <span>
+                  <i class="far fa-check-circle"></i>
+              </span>
+          </div>
+          <div class="col-md-12" style="text-align: center; color: #44ff44; font-size: 34px;">
+           <span>Order Successfully Placed</span> 
+          </div>
+          
+         </div>
         </div>
   
