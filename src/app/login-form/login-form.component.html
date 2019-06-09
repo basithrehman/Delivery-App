@@ -1,17 +1,38 @@
-<div class="login-page">
-    <div class="form">
-      <form class="register-form">
-        <input type="text" placeholder="name"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
-        <button>create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
-      <form class="login-form">
-        <input [(ngModel)]="username" type="text" placeholder="username" [ngModelOptions]="{standalone: true}"/>
-        <input [(ngModel)]="password" type="password" placeholder="password" [ngModelOptions]="{standalone: true}"/>
-        <button (click)="login()">login</button>
-        <p class="message">Not registered? <a href="#">Create an account</a></p>
-      </form>
+
+
+  <ng-sidebar-container [(showBackdrop)]="showBackdrop" [(backdropClass)]="backdropClass" style="display: inline-block;position: initial;">
+ 
+    <!-- A sidebar -->
+    <ng-sidebar [(opened)]="opened" [(position)]="position" >
+      <div (click)="closeBD()" style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.7);">
+          <div (click)="stopBD($event)" class="login-page">
+              <div class="form">
+                <form class="register-form">
+                  <input type="text" placeholder="name"/>
+                  <input type="password" placeholder="password"/>
+                  <input type="text" placeholder="email address"/>
+                  <button>create</button>
+                  <p class="message">Already registered? <a href="#">Sign In</a></p>
+                </form>
+                <form class="login-form">
+                  <input [(ngModel)]="username" type="text" placeholder="username" [ngModelOptions]="{standalone: true}"/>
+                  <input [(ngModel)]="password" type="password" placeholder="password" [ngModelOptions]="{standalone: true}"/>
+                  <button (click)="login()">login</button>
+                  <p class="message">Not registered? <a href="#">Create an account</a></p>
+                </form>
+              </div>
+            </div>
+      </div>
+      <!-- <a closeSidebar>Closes the sidebar</a> -->
+    </ng-sidebar>
+
+    <!-- Page content -->
+    <div ng-sidebar-content style="float: right;">
+      <div >
+          <button style="background: transparent; border: none;" (click)="_toggleSidebar()"><i  *ngIf="!logIn" class="far fa-user" style="font-size: 30px;padding: 10px 14px;"></i>
+            <i *ngIf="logIn" style="font-size: 30px;padding: 10px 14px;" class="fas fa-user-check"></i>
+          </button>
+      </div>
     </div>
-  </div>
+
+  </ng-sidebar-container>

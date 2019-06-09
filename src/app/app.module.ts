@@ -13,6 +13,8 @@ import { OrderWaterModule } from './order-water/order-water.module'
 import { AgmCoreModule } from '@agm/core';
 import { GoogleMapsComponent } from './google-maps/google-maps.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { SidebarModule } from 'ng-sidebar';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     HomePageComponent,
     PremiumBottlesPageComponent,
     GoogleMapsComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     BreadcrumbModule,
     OrderWaterModule,
     FormsModule,
+    SidebarModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCDViU_Bs52neXGNKc4lXA_AG3lct5SABQ'
     }),
