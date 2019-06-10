@@ -16,6 +16,10 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SidebarModule } from 'ng-sidebar';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import { LocalStorageService } from './local-storage.service';
+import { AboutComponent } from './about/about.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     PremiumBottlesPageComponent,
     GoogleMapsComponent,
     LoginFormComponent,
-    NavBarComponent
+    NavBarComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +37,12 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     OrderWaterModule,
     FormsModule,
     SidebarModule.forRoot(),
+    StorageServiceModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCDViU_Bs52neXGNKc4lXA_AG3lct5SABQ'
     }),
   ],
-  providers: [],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
