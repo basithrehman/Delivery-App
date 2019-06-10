@@ -17,7 +17,7 @@ li.indicator-container {
   }
   li.active{
     width: 20% !important;
-    background-color:#d3be4e !important;    
+    background-color:#0077b5 !important;    
     height: 100%;
     color: white;
     border: 1px solid #0077b5;

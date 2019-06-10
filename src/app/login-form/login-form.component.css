@@ -124,3 +124,7 @@ body {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+::ng-deep .ng-sidebar__content{
+  height: fit-content;
+}

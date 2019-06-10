@@ -27,16 +27,16 @@
     </ng-sidebar>
 
     <!-- Page content -->
-    <div ng-sidebar-content style="float: right;">
+    <div ng-sidebar-content style="float: right;    height: fit-content;">
       <div style="width: 100px;text-align: right">
           <button *ngIf="!logIn" style="background: transparent; border: none;" (click)="_toggleSidebar()">
-            <i  *ngIf="!logIn" class="far fa-user" style="font-size: 30px;padding: 10px 11px;"></i>
+            <i  *ngIf="!logIn" class="far fa-user" style="height: fit-content;font-size: 30px;padding: 10px 11px;"></i>
           </button>
 
           <button (click)="drop()" *ngIf="logIn" style="background: transparent; border: none;">
-            <i *ngIf="logIn" style="font-size: 30px;padding: 10px 0px;" class="fas fa-user-check"></i>
+            <i *ngIf="logIn" style="font-size: 30px;padding: 10px 0px; height: fit-content;" class="fas fa-user-check"></i>
           </button>
-          <div id="myDropdown" class="dropdown-content">
+          <div id="myDropdown" class="dropdown-content" style="margin-top: 6px">
             <a href="#home">Dashboard</a>
             <a href="#about">Contact</a>
             <a (click)="logOut()" href="">Log Out</a>
