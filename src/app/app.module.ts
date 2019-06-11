@@ -18,7 +18,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { LocalStorageService } from './local-storage.service';
-import { AboutComponent } from './about/about.component'
+import { AboutComponent } from './about/about.component';
+import { RegisterFormComponent } from './register-form/register-form.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AboutComponent } from './about/about.component'
     GoogleMapsComponent,
     LoginFormComponent,
     NavBarComponent,
-    AboutComponent
+    AboutComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,

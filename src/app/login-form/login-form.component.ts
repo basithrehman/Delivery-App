@@ -68,4 +68,8 @@ export class LoginFormComponent implements OnInit {
     this.localStorageService.storeOnLocalStorage(false);
     document.getElementById("myDropdown").classList.toggle("show");
   }
+
+  register(){
+    window.location.href="/register"
+  }
 }
