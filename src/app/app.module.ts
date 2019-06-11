@@ -20,6 +20,7 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
 import { LocalStorageService } from './local-storage.service';
 import { AboutComponent } from './about/about.component';
 import { RegisterFormComponent } from './register-form/register-form.component'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { RegisterFormComponent } from './register-form/register-form.component'
     FormsModule,
     SidebarModule.forRoot(),
     StorageServiceModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCDViU_Bs52neXGNKc4lXA_AG3lct5SABQ'
     }),

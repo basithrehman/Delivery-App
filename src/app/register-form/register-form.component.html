@@ -1,14 +1,17 @@
-<form>
+<form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
   <div style="margin-top: 50px;" class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
+    <label for="name"><b>Full Name</b></label>
+    <input type="text" placeholder="Enter Name" name="fullName" #fullName="ngModel"  [(ngModel)]="userService.selectedUser.fullName" required>
+
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="text" placeholder="Enter Email" name="email" #email="ngModel"  [(ngModel)]="userService.selectedUser.email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
