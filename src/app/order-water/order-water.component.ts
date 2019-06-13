@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd, NavigationStart, Params, PRIMARY
 import "rxjs/add/operator/filter";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
+import { LocalStorageService } from '../local-storage.service'
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Order } from '../shared/order/order.model';
 
@@ -43,7 +44,8 @@ export class OrderWaterComponent implements OnInit {
       zip: '',
       country: ''
     },
-    payment: ''
+    payment: '',
+    email: ''
  };
 
   @ViewChild('nw') er: ElementRef;
@@ -62,10 +64,12 @@ export class OrderWaterComponent implements OnInit {
   country:any;
   county:any;
 
-    payment:any;
+  payment:any;
+
+  getEmail:any;
 
   public breadcrumbs: IBreadcrumb[];
-  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
+  constructor(private LocalStorageService : LocalStorageService , private http:HttpClient, private activatedRoute: ActivatedRoute,
     private router: Router ) {
       this.breadcrumbs = [];
 
@@ -96,7 +100,7 @@ export class OrderWaterComponent implements OnInit {
     this.droWater=0;
     this.troWater=0;
     this.payment = 'cod';
-
+    this.getEmail = this.LocalStorageService.getLocalStorage();
   //   $(document).ready(function(){
   //     $('.add').click(function () {
   //       if ($(this).prev().val() < 10) {
@@ -182,10 +186,13 @@ export class OrderWaterComponent implements OnInit {
     this.selectedOrder.address.state = this.state;
     this.selectedOrder.address.zip = this.zip;
     this.selectedOrder.address.country = this.country;
+    
+    this.selectedOrder.email = this.getEmail.email;
+
 
     this.http.post(environment.apiUrl+'/order', this.selectedOrder).subscribe(
       res =>{
-        console.log("inside")
+        console.log("inside");
       },
       err =>{}
     )}
