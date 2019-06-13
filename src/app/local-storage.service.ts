@@ -7,13 +7,14 @@ export class LocalStorageService {
      anotherTodolist = [];
      constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
-     public storeOnLocalStorage(status) {
+     public storeOnLocalStorage(status, Email) {
           
           // get array of tasks from local storage
           var currentTodoList = this.storage.get(STORAGE_KEY) || [];
           // push new task to array
           currentTodoList = {
-              login: status 
+              login: status,
+              email: Email
           };
           // insert updated array to local storage
           this.storage.set(STORAGE_KEY, currentTodoList);

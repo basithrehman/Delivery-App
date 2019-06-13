@@ -18,7 +18,7 @@
     <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">Noraml Purified Water</span>
       <div style="display: inline;padding-left: 90px;">
           <button type="button" id="sub" class="sub" (click)='changeNWsub()'>-</button>
-          <input #nw type="number" id="box" [value]="normalWater" min="1" max="10" />
+          <input #nw type="number" id="box" [(ngModel)]="normalWater" min="1" max="10" />
           <button type="button" id="add" class="add" (click)='changeNWadd()'>+</button>
       </div> 
     </div>
@@ -26,7 +26,7 @@
     <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">RO purified Water</span>
       <div style="display: inline;padding-left: 129px;">
           <button type="button" id="sub" class="sub" (click)='changeROsub()'>-</button>
-          <input #nw type="number" id="box" [value]="roWater" min="1" max="10" />
+          <input #nw type="number" id="box" [(ngModel)]="roWater" min="1" max="10" />
           <button type="button" id="add" class="add" (click)='changeROadd()'>+</button>
       </div> 
     </div>
@@ -34,7 +34,7 @@
     <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">Double RO purified Water</span>
       <div style="display: inline;padding-left: 61px;">
           <button type="button" id="sub" class="sub" (click)='changeDROsub()'>-</button>
-          <input #nw type="number" id="box" [value]="droWater" min="1" max="10" />
+          <input #nw type="number" id="box" [(ngModel)]="droWater" min="1" max="10" />
           <button type="button" id="add" class="add" (click)='changeDROadd()'>+</button>
       </div> 
     </div>
@@ -42,7 +42,7 @@
     <div class="main-box"><span style="color: white;font-weight: 700;font-size: 19px;">Thriple RO purified Water</span>
       <div style="display: inline;padding-left: 63px;">
           <button type="button" id="sub" class="sub" (click)='changeTROsub()'>-</button>
-          <input #nw type="number" id="box" [value]="troWater" min="1" max="10" />
+          <input #nw type="number" id="box" [(ngModel)]="troWater" min="1" max="10" />
           <button type="button" id="add" class="add" (click)='changeTROadd()'>+</button>
       </div> 
     </div>    
@@ -139,9 +139,9 @@
                     <h3 style="margin-top: 10px;">Payment:</h3>
                     <div class="row">
                         <span class="col-md-12">
-                            <input type="radio" name="payment" value="cod"> COD
-                            <input type="radio" name="payment" value="c/d"> Credit/Debit card
-                            <input type="radio" name="payment" value="ob"> Online Banking  
+                            <input type="radio" name="payment" value="cod" [(ngModel)]="payment"> COD
+                            <input type="radio" name="payment" value="c/d" [(ngModel)]="payment"> Credit/Debit card
+                            <input type="radio" name="payment" value="ob" [(ngModel)]="payment"> Online Banking  
                         </span>
                     </div>
                 </div>

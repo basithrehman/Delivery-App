@@ -40,7 +40,7 @@ export class LoginFormComponent implements OnInit {
           if( res[0].email == this.username && res[0].password == this.password){
           console.log(res[0].email, res[0].password)
           this.logIn = true;
-          var ls = this.localStorageService.storeOnLocalStorage(this.logIn);
+          var ls = this.localStorageService.storeOnLocalStorage(this.logIn, res[0].email);
           if(ls && ls.login){
                 this.logIn = true;
               } else {
@@ -95,7 +95,7 @@ export class LoginFormComponent implements OnInit {
 
   logOut(){
     this.logIn = false;
-    this.localStorageService.storeOnLocalStorage(false);
+    this.localStorageService.storeOnLocalStorage(false,"");
     document.getElementById("myDropdown").classList.toggle("show");
   }
 

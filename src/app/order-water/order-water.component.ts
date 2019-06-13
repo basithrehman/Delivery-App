@@ -4,6 +4,11 @@ import "rxjs/add/operator/filter";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Order } from '../shared/order/order.model';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http'
+
+import { environment } from '../../environments/environment'
 
 
 interface IBreadcrumb {
@@ -19,6 +24,27 @@ interface IBreadcrumb {
   styleUrls: ['./order-water.component.css']
 })
 export class OrderWaterComponent implements OnInit {
+
+
+  
+
+
+  selectedOrder = {
+    type: {
+      normalWater: '',
+      roWater: '',
+      droWater: '',
+      troWater: ''
+    },
+    address: {
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      country: ''
+    },
+    payment: ''
+ };
 
   @ViewChild('nw') er: ElementRef;
   crumb:any; 
@@ -36,8 +62,10 @@ export class OrderWaterComponent implements OnInit {
   country:any;
   county:any;
 
+    payment:any;
+
   public breadcrumbs: IBreadcrumb[];
-  constructor(   private activatedRoute: ActivatedRoute,
+  constructor(private http:HttpClient, private activatedRoute: ActivatedRoute,
     private router: Router ) {
       this.breadcrumbs = [];
 
@@ -67,6 +95,7 @@ export class OrderWaterComponent implements OnInit {
     this.roWater=0;
     this.droWater=0;
     this.troWater=0;
+    this.payment = 'cod';
 
   //   $(document).ready(function(){
   //     $('.add').click(function () {
@@ -141,8 +170,25 @@ export class OrderWaterComponent implements OnInit {
   }
 
   navigate3(){
-    this.crumb='Price'
-  }
+    this.crumb='Price';
+    this.selectedOrder.payment = this.payment;
+    this.selectedOrder.type.normalWater = this.normalWater;
+    this.selectedOrder.type.roWater = this.roWater;
+    this.selectedOrder.type.droWater = this.droWater;
+    this.selectedOrder.type.troWater = this.troWater;
+
+    this.selectedOrder.address.street = this.street;
+    this.selectedOrder.address.city = this.city;
+    this.selectedOrder.address.state = this.state;
+    this.selectedOrder.address.zip = this.zip;
+    this.selectedOrder.address.country = this.country;
+
+    this.http.post(environment.apiUrl+'/order', this.selectedOrder).subscribe(
+      res =>{
+        console.log("inside")
+      },
+      err =>{}
+    )}
 
   // onChange(newValue) {
   //   console.log(newValue);
