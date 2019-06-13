@@ -21,6 +21,8 @@ import { LocalStorageService } from './local-storage.service';
 import { AboutComponent } from './about/about.component';
 import { RegisterFormComponent } from './register-form/register-form.component'
 import { HttpClientModule } from '@angular/common/http';
+import { ExplicitOrderpageComponent } from './explicit-orderpage/explicit-orderpage.component';
+import { WaterProductsComponent } from './water-products/water-products.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginFormComponent,
     NavBarComponent,
     AboutComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ExplicitOrderpageComponent,
+    WaterProductsComponent
   ],
   imports: [
     BrowserModule,

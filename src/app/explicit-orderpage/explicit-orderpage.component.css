@@ -1,0 +1,27 @@
+::ng-deep .carousel-indicators li {
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+::ng-deep .carousel-indicators .active{
+    background-color: #ffffff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    position: relative;
+    flex: 0 1 auto;
+    width: 30px;
+    height: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    margin-bottom: 0.5px;
+}

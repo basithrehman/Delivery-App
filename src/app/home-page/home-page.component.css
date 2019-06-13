@@ -44,9 +44,9 @@ li.indicator-container {
 
   .premium{
     position: absolute;
-    top: 20%;
+    top: 35%;
     font-size: 30px;
-    left: 14%;
+    left: 6%;
   }
 
   
@@ -59,11 +59,12 @@ li.indicator-container {
     cursor:pointer;
     box-sizing:border-box;
     overflow:hidden;
-    margin: 96px 0 40px 148px;
+    margin: 108px 0 40px 148px;
   }
   .button-1 a{
     font-family:arial;
-    font-size:16px;
+    font-size:20px;
+    font-weight: 900;
     color:#34495e;
     text-decoration:none;
     line-height:50px;
