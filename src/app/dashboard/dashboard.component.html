@@ -1,15 +1,69 @@
-<div  style="margin-top: 50px;" *ngFor="let item of data;let i = index">
+<div style="margin-top: 100px; margin-bottom: 80px">
+    <div  style="" *ngFor="let item of data;let i = index">
 
-  <div class="row">
-    <div class="col-md-8">
-      <span>Normal Water</span>: <br>
-      <span>Address</span>:
-    </div>
+        <div class="row card-1" style="width: 60%; margin: auto; padding: 21px; margin-top: 35px; ">
+          
+          <div class="col-md-5">
+            <div class="row">
+             <div class="col-md-6">
+              <div class="col-md-12">
+                <span>Normal Water:</span>
+              </div>
+      
+              <div class="col-md-12">
+                <span>Ro Water:</span>
+              </div>
+      
+              <div class="col-md-12">
+                <span>DRO Water:</span>
+              </div>
+              
+              <div class="col-md-12">
+                <span>TRO Water:</span>
+              </div>
+             </div>
 
-    <div class="col-md-4">
-      <span>{{ item.type.normalWater}}</span><br>
-      <span>{{ item.address.city}}</span>
-    </div>
-  </div>
+             <div class="col-md-6">
+                <div class="col-md-12">
+                  <span>{{item.type.normalWater}}</span>
+                </div>
+        
+                <div class="col-md-12">
+                    <span>{{item.type.roWater}}</span>
+                </div>
+        
+                <div class="col-md-12">
+                    <span>{{item.type.droWater}}</span>
+                </div>
+                
+                <div class="col-md-12">
+                    <span>{{item.type.troWater}}</span>
+                </div>
+               </div>
+            </div>
+          </div>
+      
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-12" style="margin-bottom: 5px;font-weight: 900">
+                  <span >Address: </span>
+              </div>
+              <div class="col-md-12">
+                  <span>{{item.address.street}},{{item.address.city}},{{item.address.state}},{{item.address.zip}},{{item.address.country}}</span>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3">
+            <div class="row"> 
+              <div class="col-md-12" style="margin-bottom: 5px;font-weight: 900">
+                <span>Payment:</span>
+              </div>
 
+              <div class="col-md-12">
+                <span>{{item.payment}}</span>
+                </div>
+            </div>
+          </div>
+      </div>
 </div>
