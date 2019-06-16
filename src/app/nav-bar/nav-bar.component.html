@@ -1,4 +1,4 @@
-<div style="height: 7vh;position: fixed; margin-bottom: 0px;background: #e3ce5e;border-bottom: none;" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div style="height: 6vh;position: fixed; margin-bottom: 0px;background: #e3ce5e;border-bottom: none;" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
           <app-login-form></app-login-form>
@@ -10,13 +10,15 @@
         </button>
       </div>
       <div class="navbar-collapse collapse">
-        <div class="small-logo-container" style="display: inline;">
-          <img src="https://i.ibb.co/9ZH3cD1/output-onlinepngtools-1.png" alt="output-onlinepngtools-1" style="width: 23vw;height: 13vh;position: relative;top: -22px;">
+        <div (click)="hp()" class="small-logo-container" style="display: inline;">
+          <img src="https://i.ibb.co/9ZH3cD1/output-onlinepngtools-1.png" alt="output-onlinepngtools-1" style="cursor: pointer; width: 17vw; height: 8vh;position: relative;top: -8px;">
       </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#">Active</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+        <ul style="font-size: 15px" class="nav navbar-nav navbar-right">
+          <li><a  class="hv" routerLink="/order">Order</a></li>
+          <li><a class="hv" href="#">Marketing</a></li>
+          <li><a class="hv" href="#">Franchise</a></li>
+          <li><a class="hv" href="/order">Contact US</a></li>
+          <li><a class="hv" href="#">About US</a></li>
           <!-- <li><div> <app-login-form></app-login-form></div></li> -->
 
 
