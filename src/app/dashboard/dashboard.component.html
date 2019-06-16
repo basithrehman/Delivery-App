@@ -1,0 +1,15 @@
+<div  style="margin-top: 50px;" *ngFor="let item of data;let i = index">
+
+  <div class="row">
+    <div class="col-md-8">
+      <span>Normal Water</span>: <br>
+      <span>Address</span>:
+    </div>
+
+    <div class="col-md-4">
+      <span>{{ item.type.normalWater}}</span><br>
+      <span>{{ item.address.city}}</span>
+    </div>
+  </div>
+
+</div>

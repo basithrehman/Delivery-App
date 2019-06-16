@@ -23,6 +23,7 @@ import { RegisterFormComponent } from './register-form/register-form.component'
 import { HttpClientModule } from '@angular/common/http';
 import { ExplicitOrderpageComponent } from './explicit-orderpage/explicit-orderpage.component';
 import { WaterProductsComponent } from './water-products/water-products.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { WaterProductsComponent } from './water-products/water-products.componen
     AboutComponent,
     RegisterFormComponent,
     ExplicitOrderpageComponent,
-    WaterProductsComponent
+    WaterProductsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
