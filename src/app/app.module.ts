@@ -26,6 +26,10 @@ import { WaterProductsComponent } from './water-products/water-products.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MarketingComponent } from './marketing/marketing.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,8 @@ import { MarketingComponent } from './marketing/marketing.component';
     BreadcrumbModule,
     OrderWaterModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     SidebarModule.forRoot(),
     StorageServiceModule,
     HttpClientModule,

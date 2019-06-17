@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart, Params, PRIMARY_OUTLET } from "@angular/router";
 import { LocalStorageService } from '../local-storage.service'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { ToastrService } from 'ngx-toastr';
 
 import { environment } from '../../environments/environment'
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -19,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   position:any;
   logIn: boolean;
 
-  constructor(private http: HttpClient, private router: Router, private activatedroute: ActivatedRoute, private localStorageService: LocalStorageService) { }
+  constructor(private toastr: ToastrService, private http: HttpClient, private router: Router, private activatedroute: ActivatedRoute, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
     this.position='top';
@@ -51,11 +53,22 @@ export class LoginFormComponent implements OnInit {
         }
         
         else if(res[0].error || res[0].email == this.username || res[0].password == this.password ){
-          alert("incorrect username or password");
+          this.toastr.error('Incorrect Username or Password','Error', {
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            timeOut: 5000
+          });
         }
        },
         err =>{
-          alert("Our server is down at the moment, please come back after some time.")
+          if(err){
+            this.toastr.error('Our server is down at this moment, please try agin after some time.','Error', {
+              positionClass: 'toast-top-center',
+              progressBar: true,
+              timeOut: 5000
+            });
+            
+          }
         }
       )
 
