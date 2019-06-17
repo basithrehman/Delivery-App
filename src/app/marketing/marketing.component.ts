@@ -13,7 +13,13 @@ export class MarketingComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   market = {
-    name: ''
+    name: '',
+    email: '',
+    number: '',
+    address: '',
+    organisation: '',
+    gst: '',
+    deposit: '',
   }
 
   ngOnInit() {
