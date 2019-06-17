@@ -34,3 +34,17 @@
     line-height: 1em;
     color: #000;
   }
+
+  .about {
+    text-align: center;
+    position: absolute;
+    top: 90%;
+    width:100%
+  }
+
+  .aabot {
+    text-align: center;
+    position: absolute;
+    top: 15%;
+    width:99.9vw
+  }

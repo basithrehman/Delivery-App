@@ -10,7 +10,11 @@ export class AboutComponent implements OnInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
+  about:any;
   ngOnInit() {
+
+   this.about =  window.location.href.includes('about');
+   
     if(isPlatformBrowser(this.platformId)) {
         $(document).ready(function(){
         var a = 0;

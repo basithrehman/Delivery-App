@@ -111,3 +111,7 @@ li.indicator-container {
   .button-1:hover .eff-2{
     right:0;
   }
+
+  .btnh:hover {
+    background: #1d8cf8 !important;
+  }
