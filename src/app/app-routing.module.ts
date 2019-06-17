@@ -6,7 +6,8 @@ import { OrderWaterModule } from './order-water/order-water.module';
 import { LoginFormComponent } from './login-form/login-form.component'
 import { RegisterFormComponent } from './register-form/register-form.component'
 import { ExplicitOrderpageComponent } from './explicit-orderpage/explicit-orderpage.component'
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MarketingComponent } from './marketing/marketing.component';
 
 const routes: Routes = [
   { path: 'bottled-water-products', component: PremiumBottlesPageComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'login', component: LoginFormComponent},
   { path: 'register', component: RegisterFormComponent},
   { path: 'order', component: ExplicitOrderpageComponent},
-  { path: 'dashboard', component : DashboardComponent}
+  { path: 'dashboard', component : DashboardComponent},
+  { path: 'marketing', component: MarketingComponent}
 ];
 
 @NgModule({

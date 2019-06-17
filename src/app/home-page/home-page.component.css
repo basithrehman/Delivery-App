@@ -49,9 +49,15 @@ li.indicator-container {
     left: 6%;
   }
 
+  .market{
+    position: absolute;
+    top: 35%;
+    font-size: 30px;
+    left: 25%;
+  }
+
   
   .button-1{
-    width:140px;
     height:50px;
     border:2px solid #0077b5 ;
     float:left;
@@ -61,6 +67,7 @@ li.indicator-container {
     overflow:hidden;
     margin: 108px 0 40px 148px;
   }
+  
   .button-1 a{
     font-family:arial;
     font-size:20px;
@@ -71,12 +78,13 @@ li.indicator-container {
     transition:all .5s ease;
     z-index:2;
     position:relative;
+    padding: 30px;
   }
   .eff-1{
-    width:140px;
+    width:162px;
     height:50px;
     top:-2px;
-    right:-140px;
+    right:-163px;
     background:#34495e;
     position:absolute;
     transition:all .5s ease;
@@ -89,3 +97,17 @@ li.indicator-container {
     color:#fff;
   }
   
+  .eff-2 {
+    width: 205px;
+    height: 50px;
+    top: -2px;
+    right: -205px;
+    background: #0077b5;
+    position: absolute;
+    transition: all .5s ease;
+    z-index: 1;
+  }
+
+  .button-1:hover .eff-2{
+    right:0;
+  }
