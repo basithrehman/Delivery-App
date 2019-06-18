@@ -32,6 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FranchiseComponent } from './franchise/franchise.component';
 import { ConstructionComponent } from './construction/construction.component';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ContactComponent } from './contact/contact.component';
     MarketingComponent,
     FranchiseComponent,
     ConstructionComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
