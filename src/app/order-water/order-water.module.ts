@@ -11,12 +11,15 @@ import {BreadcrumbModule} from 'angular-crumbs';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
+import { SidebarModule } from 'ng-sidebar';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
     BreadcrumbModule,
+    SidebarModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCDViU_Bs52neXGNKc4lXA_AG3lct5SABQ'
     })

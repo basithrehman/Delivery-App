@@ -34,6 +34,13 @@ export class LoginFormComponent implements OnInit {
     // console.log(this.localStorageService.getLocalStorage());
   }
 
+  ngAfterViewChecked() {
+    var ls = this.localStorageService.getLocalStorage();
+    if(ls && ls.login){
+      this.logIn= true;
+    }
+  }
+
   login(){
 
       var data = this.http.get(environment.apiUrl + '/get?email='+ this.username).subscribe(
@@ -48,7 +55,6 @@ export class LoginFormComponent implements OnInit {
               } else {
                 this.logIn = false;
               }
-          this.router.navigate(['/'])
           this.opened = false;    
         }
         

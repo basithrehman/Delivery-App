@@ -8,6 +8,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Order } from '../shared/order/order.model';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { ToastrService } from 'ngx-toastr';
 
 import { environment } from '../../environments/environment'
 
@@ -26,7 +27,8 @@ interface IBreadcrumb {
 })
 export class OrderWaterComponent implements OnInit {
 
-
+  username: any;
+  password:any;
   
 
 
@@ -49,7 +51,9 @@ export class OrderWaterComponent implements OnInit {
  };
 
   @ViewChild('nw') er: ElementRef;
-  crumb:any; 
+  crumb:any;
+  logIn: boolean; 
+  login: boolean;
   mapready = false;
   normalWaterBack:any;
   normalWater:any;
@@ -68,8 +72,11 @@ export class OrderWaterComponent implements OnInit {
 
   getEmail:any;
 
+  position:any;
+  _opened: boolean = false;
+
   public breadcrumbs: IBreadcrumb[];
-  constructor(private LocalStorageService : LocalStorageService , private http:HttpClient, private activatedRoute: ActivatedRoute,
+  constructor(private toastr: ToastrService,private LocalStorageService : LocalStorageService , private http:HttpClient, private activatedRoute: ActivatedRoute,
     private router: Router ) {
       this.breadcrumbs = [];
 
@@ -100,7 +107,10 @@ export class OrderWaterComponent implements OnInit {
     this.droWater=0;
     this.troWater=0;
     this.payment = 'cod';
+    this.position = 'right'
     this.getEmail = this.LocalStorageService.getLocalStorage();
+   
+    this.login = this.LocalStorageService.getLocalStorage().login;
   //   $(document).ready(function(){
   //     $('.add').click(function () {
   //       if ($(this).prev().val() < 10) {
@@ -119,6 +129,12 @@ export class OrderWaterComponent implements OnInit {
   this.crumb='Type';
  
   }
+
+  ngAfterViewChecked(){
+    this.login = this.LocalStorageService.getLocalStorage().login;
+  }
+
+  
 
   changeNWadd() {
     this.normalWater = this.normalWater + 1;
@@ -158,7 +174,9 @@ export class OrderWaterComponent implements OnInit {
     this.troWater = this.troWater - 1;
   }
 
-  
+  _toggleSidebar() {
+    this._opened = !this._opened;
+  }
   
 
   navigate0(){
@@ -170,11 +188,58 @@ export class OrderWaterComponent implements OnInit {
   }
 
   navigate2(){
-    this.crumb='Adress'
+    this.crumb='Adress';
+  }
+
+  loginn(){
+
+    var data = this.http.get(environment.apiUrl + '/get?email='+ this.username).subscribe(
+      res =>{ 
+        
+        if( res[0].email == this.username && res[0].password == this.password){
+        console.log(res[0].email, res[0].password)
+        this.logIn = true;
+        var ls = this.LocalStorageService.storeOnLocalStorage(this.logIn, res[0].email);
+        if(ls && ls.login){
+              this.logIn = true;
+            } else {
+              this.logIn = false;
+            }
+        this._opened = false;    
+      }
+      
+      else if(res[0].error || res[0].email == this.username || res[0].password == this.password ){
+        this.toastr.error('Incorrect Username or Password','Error', {
+          positionClass: 'toast-top-center',
+          progressBar: true,
+          timeOut: 5000
+        });
+      }
+     },
+      err =>{
+        if(err){
+          this.toastr.error('Our server is down at this moment, please try agin after some time.','Error', {
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            timeOut: 5000
+          });
+          
+        }
+      }
+    )
+  }
+
+  closeBD(){
+    this._opened = false;
+  }
+
+  stopBD(e){    
+    e.stopPropagation();
+    e.preventDefault();
   }
 
   navigate3(){
-    this.crumb='Price';
+    
     this.selectedOrder.payment = this.payment;
     this.selectedOrder.type.normalWater = this.normalWater;
     this.selectedOrder.type.roWater = this.roWater;
@@ -192,9 +257,25 @@ export class OrderWaterComponent implements OnInit {
 
     this.http.post(environment.apiUrl+'/order', this.selectedOrder).subscribe(
       res =>{
-        console.log("inside");
+        this.crumb='Price';
+        if(res){
+          this.toastr.success('Your Order is placed!', 'Successful',{
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            timeOut: 5000
+          });
+      }        
       },
-      err =>{}
+      err =>{
+        if(err){
+          this.toastr.error('Our server is down at this moment, please try agin after some time.','Error', {
+            positionClass: 'toast-top-center',
+            progressBar: true,
+            timeOut: 5000
+          });
+          
+        }
+      }
     )}
 
   // onChange(newValue) {

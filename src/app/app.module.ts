@@ -29,6 +29,9 @@ import { MarketingComponent } from './marketing/marketing.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 import { ToastrModule } from 'ngx-toastr';
+import { FranchiseComponent } from './franchise/franchise.component';
+import { ConstructionComponent } from './construction/construction.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { ToastrModule } from 'ngx-toastr';
     ExplicitOrderpageComponent,
     WaterProductsComponent,
     DashboardComponent,
-    MarketingComponent
+    MarketingComponent,
+    FranchiseComponent,
+    ConstructionComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

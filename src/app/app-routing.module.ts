@@ -9,6 +9,8 @@ import { ExplicitOrderpageComponent } from './explicit-orderpage/explicit-orderp
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MarketingComponent } from './marketing/marketing.component';
 import { AboutComponent } from './about/about.component';
+import { FranchiseComponent } from './franchise/franchise.component'
+import { ContactComponent } from './contact/contact.component' 
 
 const routes: Routes = [
   { path: 'bottled-water-products', component: PremiumBottlesPageComponent },
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'order', component: ExplicitOrderpageComponent},
   { path: 'dashboard', component : DashboardComponent},
   { path: 'marketing', component: MarketingComponent},
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'franchise', component: FranchiseComponent},
+  { path: 'contact',  component: ContactComponent }
 ];
 
 @NgModule({
