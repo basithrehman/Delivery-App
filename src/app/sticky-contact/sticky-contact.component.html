@@ -1,0 +1,94 @@
+<ng-sidebar-container style="        height: 0%;
+        position: fixed;
+        top: -99px;
+        width: 25%;
+        right: 10px;
+        height: 100vh;
+        padding-top: 233px;
+        padding-left: 13px;
+        padding-right: 7px;
+        z-index: 15;">
+
+  <!-- A sidebar -->
+  <ng-sidebar id="style-4" [(opened)]="_opened" [(position)]="position" [(animate)]="animate">
+    <div >
+      <div class="login-page">
+        <div class="row"  style="    width: 100%;background: white; margin: 0px;">
+          <div class="col-md-12">
+            <div style="background: #004eba; color: white; padding: 20px;" class="row">
+              <div style="font-weight: 900; font-size: 16px; padding-bottom: 6px;" class="col-md-12">
+                <span>Contact Form</span>
+              </div>
+
+              <div style="font-size: 15px" class="col-md-12">
+                <span>Please fill out the form below and we will get back to you as soon as possible.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12" style="height: 363px; padding: 0px;">
+            <form style="padding: 10px; background: white;" (ngSubmit)="post()">
+              <hr>
+
+              <label for="email"><b>Name</b></label>
+              <input type="text" placeholder="Enter Name" name="name" required>
+
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+
+              <label for="number"><b>Number</b></label>
+              <input type="text" placeholder="Enter Number" name="number" required>
+
+              
+              <label for="message"><b>Message</b></label>
+              <textarea style="    display: inherit;
+              width: 100%;
+              padding: 10px;
+              border: none;
+              background: #f1f1f1;
+              height: 74px;"></textarea>
+              <hr>          
+              
+              <button type="submit" class="registerbtn">Register</button>
+      
+          </form>
+        </div>
+
+       
+
+      </div>
+
+
+    </div>
+    </div>
+    <!-- <a closeSidebar>Closes the sidebar</a> -->
+  </ng-sidebar>
+
+  <!-- Page content -->
+
+
+</ng-sidebar-container>
+
+<div *ngIf="!_opened" style="      position: fixed;
+bottom: 22px;
+right: 22px;">
+  <button class="outline" style="       
+  font-size: 35px;
+  background: #e3ce5e;
+  color: #2f1515;
+  border: 1px solid #e3ce5e;
+  border-radius: 40px;
+  padding: 4px 13px;" (click)="_toggleSidebar()"><i class="far fa-envelope"></i></button>
+</div>
+
+<div *ngIf="_opened" style="      position: fixed;
+bottom: 22px;
+right: 22px;">
+  <button class="outline" style="       
+  font-size: 35px;
+  background: #e3ce5e;
+  color: #2f1515;
+  border: 1px solid #e3ce5e;
+  border-radius: 40px;
+  padding: 4px 18px;" (click)="_toggleSidebar()"><i class="fas fa-times"></i></button>
+</div>

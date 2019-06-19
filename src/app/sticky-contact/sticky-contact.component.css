@@ -1,0 +1,76 @@
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Overwrite default styles of hr */
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .registerbtn:hover {
+    opacity: 1;
+  }
+  
+  /* Add a blue text color to links */
+  a {
+    color: dodgerblue;
+  }
+  
+  /* Set a grey background color and center the text of the "sign in" section */
+  .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+
+
+  #style-4::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+#style-4::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+#style-4::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+#style-4::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.outline:focus, .outline:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .outline:hover {
+    color: rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 5px 15px #e3ce5ea6;
+  }

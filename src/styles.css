@@ -189,3 +189,9 @@
       width: 25em;
     }
   }
+
+
+  .outline:focus, .outline:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }

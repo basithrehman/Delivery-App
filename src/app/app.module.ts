@@ -33,6 +33,7 @@ import { FranchiseComponent } from './franchise/franchise.component';
 import { ConstructionComponent } from './construction/construction.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { StickyContactComponent } from './sticky-contact/sticky-contact.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { FooterComponent } from './footer/footer.component';
     FranchiseComponent,
     ConstructionComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    StickyContactComponent
   ],
   imports: [
     BrowserModule,
