@@ -31,17 +31,17 @@
               <hr>
 
               <label for="email"><b>Name</b></label>
-              <input type="text" placeholder="Enter Name" name="name" required>
+              <input type="text" placeholder="Enter Name" name="name" [(ngModel)]="data.name" required>
 
               <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" name="email" required>
+              <input type="text" placeholder="Enter Email" name="email" [(ngModel)]="data.email" required>
 
               <label for="number"><b>Number</b></label>
-              <input type="text" placeholder="Enter Number" name="number" required>
+              <input type="text" placeholder="Enter Number" name="number" [(ngModel)]="data.number" required>
 
               
               <label for="message"><b>Message</b></label>
-              <textarea style="    display: inherit;
+              <textarea [(ngModel)]="data.message" name="message" style="display: inherit;
               width: 100%;
               padding: 10px;
               border: none;

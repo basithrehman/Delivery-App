@@ -37,9 +37,9 @@
             <i *ngIf="logIn" style="font-size: 30px;padding: 10px 0px; height: fit-content;" class="fas fa-user-check"></i>
           </button>
           <div id="myDropdown" class="dropdown-content" style="margin-top: 6px">
-            <a href="/dashboard">Dashboard</a>
-            <a href="#about">Contact</a>
-            <a (click)="logOut()" href="">Log Out</a>
+            <a routerLink="/dashboard">Dashboard</a>
+            <a routerLink="/contact" >Contact</a>
+            <a (click)="logOut()" routerLink="/">Log Out</a>
           </div>
       </div>
     </div>
